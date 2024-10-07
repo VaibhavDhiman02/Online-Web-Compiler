@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Web Coder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="main-div">
+        <div class="container">
+            <div class="html code">
+                <label>
+                    &nbsp;<i class="fa-brands fa-html5"></i> HTML
+                </label>
+                <textarea id="html" onkeyup="run()"></textarea>
+            </div>
+            <div class="css code">
+                <label>
+                    &nbsp;<i class="fa-brands fa-css3-alt"></i> CSS
+                </label>
+                <textarea id="css" onkeyup="run()"></textarea>
+            </div>
+            <div class="javascript code">
+                <label>
+                    &nbsp;<i class="fa-brands fa-js"></i> JAVASCRIPT
+                </label>
+                <textarea id="js" onkeyup="run()"></textarea>
+            </div>
+        </div>
+        <div class="output">
+            <label>
+                &nbsp;<i class="fa-solid fa-play"></i> OUTPUT
+            </label>
+            <iframe id="display-output"></iframe>
+        </div>
+    </div>
+
+    <script>
+
+        function run() {
+            let html = document.getElementById("html").value;
+            let css = document.getElementById("css").value;
+            let js = document.getElementById("js").value;
+            let output = document.getElementById("display-output");
+
+            output.contentDocument.body.innerHTML = html + "<style>" + css + "</style>";
+            output.contentWindow.eval(js);
+        };
+
+    </script>
+    
+</body>
+</html>
